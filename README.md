@@ -1,6 +1,8 @@
 # PlanPulse ✨ GenAI Event Planning Assistant
 
-PlanPulse is a modern, GenAI-powered planning suite designed to organize **Weddings**, **Birthdays**, **Community Gatherings**, and **Corporate Events** with intelligent budget optimization, master countdown timelines, day-of run-of-show itineraries, vendor vetting checklists, and creative concept studios.
+> 🌐 **Live Application Link**: [https://vanshd4201-cyber.github.io/planpulse/](https://vanshd4201-cyber.github.io/planpulse/)
+
+PlanPulse is a modern, GenAI-powered planning suite designed to organize **Weddings**, **Birthdays**, **Community Gatherings**, and **Corporate Events** with intelligent budget optimization, master countdown timelines, day-of run-of-show itineraries, vendor vetting checklists, interactive table seating arrangements, and creative concept studios.
 
 Built collaboratively through **vibe coding** with interactive customization.
 
