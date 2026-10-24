@@ -1,0 +1,459 @@
+/* VisionOS Luxe Glass UI System - Luminous Aurora & Refractive Glassmorphism */
+
+@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800;900&family=Outfit:wght@400;500;600;700;800;900&display=swap');
+
+:root {
+  --font-sans: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
+  --font-display: 'Outfit', system-ui, sans-serif;
+  --glass-blur: 28px;
+  --liquid-opacity: 0.42;
+}
+
+body {
+  font-family: var(--font-sans);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  background-color: #090d16;
+  color: #f8fafc;
+  min-height: 100vh;
+  overflow-x: hidden;
+}
+
+h1, h2, h3, h4, .font-display {
+  font-family: var(--font-display);
+}
+
+/* ========================================================= */
+/* 1. Luminous VisionOS Aurora Meshes & Ambient Lighting     */
+/* ========================================================= */
+
+.liquid-bg, .crystal-bg {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 0;
+  overflow: hidden;
+  background: 
+    radial-gradient(circle at 50% 0%, rgba(30, 27, 75, 0.6) 0%, transparent 60%),
+    radial-gradient(circle at 10% 75%, rgba(15, 23, 42, 0.7) 0%, transparent 50%),
+    radial-gradient(circle at 90% 85%, rgba(19, 29, 53, 0.6) 0%, transparent 50%),
+    #090d16;
+}
+
+.liquid-orb {
+  position: absolute;
+  border-radius: 42% 58% 70% 30% / 45% 45% 55% 55%;
+  filter: blur(120px);
+  will-change: transform, border-radius;
+  pointer-events: none;
+  opacity: var(--liquid-opacity, 0.42);
+}
+
+/* 1. Radiant Electric Violet & Lilac Orb */
+.orb-1 {
+  width: 820px;
+  height: 820px;
+  top: -15%;
+  left: 12%;
+  background: radial-gradient(circle, rgba(168, 85, 247, 0.55) 0%, rgba(139, 92, 246, 0.38) 45%, rgba(99, 102, 241, 0.18) 75%, transparent 100%);
+  animation: liquid-drift-1 22s ease-in-out infinite alternate, liquid-morph 14s ease-in-out infinite alternate;
+}
+
+/* 2. Neon Cyan & Azure Sapphire Orb */
+.orb-2 {
+  width: 880px;
+  height: 880px;
+  bottom: -20%;
+  right: -5%;
+  background: radial-gradient(circle, rgba(6, 182, 212, 0.5) 0%, rgba(56, 189, 248, 0.38) 45%, rgba(59, 130, 246, 0.2) 75%, transparent 100%);
+  animation: liquid-drift-2 26s ease-in-out infinite alternate, liquid-morph 18s ease-in-out infinite alternate-reverse;
+}
+
+/* 3. Vivid Hot Magenta & Sunset Rose Orb */
+.orb-3 {
+  width: 720px;
+  height: 720px;
+  top: 28%;
+  right: 18%;
+  background: radial-gradient(circle, rgba(236, 72, 153, 0.45) 0%, rgba(217, 70, 239, 0.32) 50%, rgba(244, 63, 94, 0.15) 75%, transparent 100%);
+  animation: liquid-drift-3 20s ease-in-out infinite alternate, liquid-morph 16s ease-in-out infinite alternate;
+}
+
+/* 4. Lagoon Emerald & Radiant Seafoam Orb */
+.orb-4 {
+  width: 750px;
+  height: 750px;
+  bottom: 8%;
+  left: -12%;
+  background: radial-gradient(circle, rgba(16, 185, 129, 0.4) 0%, rgba(20, 184, 166, 0.28) 50%, rgba(6, 182, 212, 0.14) 75%, transparent 100%);
+  animation: liquid-drift-4 28s ease-in-out infinite alternate, liquid-morph 20s ease-in-out infinite alternate-reverse;
+}
+
+/* 5. Center Solar Golden Amber Glow */
+.orb-5 {
+  width: 620px;
+  height: 620px;
+  top: 10%;
+  left: 42%;
+  background: radial-gradient(circle, rgba(245, 158, 11, 0.35) 0%, rgba(251, 146, 60, 0.2) 50%, transparent 80%);
+  animation: liquid-drift-1 32s ease-in-out infinite alternate-reverse, liquid-morph 24s ease-in-out infinite alternate;
+}
+
+/* Fluid Caustic Texture Overlay */
+.liquid-caustics {
+  position: absolute;
+  inset: 0;
+  background: 
+    radial-gradient(circle at 45% 10%, rgba(255, 255, 255, 0.05) 0%, transparent 45%),
+    radial-gradient(circle at 85% 85%, rgba(255, 255, 255, 0.04) 0%, transparent 55%);
+  pointer-events: none;
+}
+
+/* ========================================================= */
+/* 2. VisionOS Luxe Glass Panels                             */
+/* ========================================================= */
+
+.glass-panel {
+  background: rgba(255, 255, 255, 0.065) !important;
+  backdrop-filter: blur(var(--glass-blur, 28px)) saturate(210%) contrast(108%) !important;
+  -webkit-backdrop-filter: blur(var(--glass-blur, 28px)) saturate(210%) contrast(108%) !important;
+  border: 1px solid rgba(255, 255, 255, 0.2) !important;
+  box-shadow: 
+    0 20px 50px -10px rgba(0, 0, 0, 0.6), 
+    0 0 24px rgba(168, 85, 247, 0.08),
+    inset 0 1.5px 2px 0 rgba(255, 255, 255, 0.48),
+    inset 0 -1px 2px 0 rgba(0, 0, 0, 0.3) !important;
+  position: relative;
+  overflow: hidden;
+}
+
+/* Specular Prismatic Top Rim Highlight */
+.glass-panel::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: linear-gradient(
+    90deg, 
+    transparent 0%, 
+    rgba(236, 72, 153, 0.65) 15%, 
+    rgba(255, 255, 255, 0.95) 50%, 
+    rgba(56, 189, 248, 0.65) 85%, 
+    transparent 100%
+  );
+  box-shadow: 0 0 10px rgba(255, 255, 255, 0.4);
+  pointer-events: none;
+  z-index: 1;
+}
+
+/* Subtle Diagonal Liquid Sheen Reflection */
+.glass-panel::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.08) 0%, rgba(255, 255, 255, 0.015) 35%, transparent 65%);
+  pointer-events: none;
+}
+
+/* ========================================================= */
+/* 3. Fluid Elevation & Hover Animations                     */
+/* ========================================================= */
+
+.glass-panel-hover {
+  transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1) !important;
+}
+
+.glass-panel-hover:hover {
+  background: rgba(255, 255, 255, 0.1) !important;
+  border-color: rgba(255, 255, 255, 0.42) !important;
+  transform: translateY(-5px) scale(1.008);
+  box-shadow: 
+    0 30px 70px -12px rgba(0, 0, 0, 0.75), 
+    0 0 36px rgba(168, 85, 247, 0.28),
+    0 0 20px rgba(56, 189, 248, 0.2),
+    inset 0 2px 3px 0 rgba(255, 255, 255, 0.75),
+    inset 0 -1.5px 2px 0 rgba(255, 255, 255, 0.15) !important;
+}
+
+/* ========================================================= */
+/* 4. Illuminated Icon Badges & Accents                      */
+/* ========================================================= */
+
+.badge-violet {
+  background: linear-gradient(135deg, rgba(168, 85, 247, 0.3) 0%, rgba(139, 92, 246, 0.18) 100%) !important;
+  border: 1px solid rgba(168, 85, 247, 0.45) !important;
+  box-shadow: 0 0 16px rgba(168, 85, 247, 0.3), inset 0 1px 1px rgba(255, 255, 255, 0.5) !important;
+  color: #e9d5ff !important;
+}
+
+.badge-cyan {
+  background: linear-gradient(135deg, rgba(6, 182, 212, 0.3) 0%, rgba(59, 130, 246, 0.18) 100%) !important;
+  border: 1px solid rgba(6, 182, 212, 0.45) !important;
+  box-shadow: 0 0 16px rgba(6, 182, 212, 0.3), inset 0 1px 1px rgba(255, 255, 255, 0.5) !important;
+  color: #a5f3fc !important;
+}
+
+.badge-pink {
+  background: linear-gradient(135deg, rgba(236, 72, 153, 0.3) 0%, rgba(217, 70, 239, 0.18) 100%) !important;
+  border: 1px solid rgba(236, 72, 153, 0.45) !important;
+  box-shadow: 0 0 16px rgba(236, 72, 153, 0.3), inset 0 1px 1px rgba(255, 255, 255, 0.5) !important;
+  color: #fbcfe8 !important;
+}
+
+.badge-amber {
+  background: linear-gradient(135deg, rgba(245, 158, 11, 0.3) 0%, rgba(249, 115, 22, 0.18) 100%) !important;
+  border: 1px solid rgba(245, 158, 11, 0.45) !important;
+  box-shadow: 0 0 16px rgba(245, 158, 11, 0.3), inset 0 1px 1px rgba(255, 255, 255, 0.5) !important;
+  color: #fde68a !important;
+}
+
+.badge-emerald {
+  background: linear-gradient(135deg, rgba(16, 185, 129, 0.3) 0%, rgba(20, 184, 166, 0.18) 100%) !important;
+  border: 1px solid rgba(16, 185, 129, 0.45) !important;
+  box-shadow: 0 0 16px rgba(16, 185, 129, 0.3), inset 0 1px 1px rgba(255, 255, 255, 0.5) !important;
+  color: #a7f3d0 !important;
+}
+
+/* ========================================================= */
+/* 5. Navigation & VisionOS Modals                           */
+/* ========================================================= */
+
+.glass-nav {
+  background: rgba(9, 13, 22, 0.65) !important;
+  backdrop-filter: blur(calc(var(--glass-blur, 28px) + 8px)) saturate(220%) !important;
+  -webkit-backdrop-filter: blur(calc(var(--glass-blur, 28px) + 8px)) saturate(220%) !important;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.18) !important;
+  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.55), 0 0 20px rgba(168, 85, 247, 0.1) !important;
+  position: relative;
+}
+
+.glass-nav::before {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 1px;
+  background: linear-gradient(90deg, transparent 0%, rgba(168, 85, 247, 0.4) 30%, rgba(56, 189, 248, 0.4) 70%, transparent 100%);
+  pointer-events: none;
+}
+
+.glass-modal {
+  background: rgba(11, 16, 29, 0.82) !important;
+  backdrop-filter: blur(calc(var(--glass-blur, 28px) + 16px)) saturate(220%) contrast(110%) !important;
+  -webkit-backdrop-filter: blur(calc(var(--glass-blur, 28px) + 16px)) saturate(220%) contrast(110%) !important;
+  border: 1px solid rgba(255, 255, 255, 0.28) !important;
+  box-shadow: 
+    0 40px 100px -20px rgba(0, 0, 0, 0.95), 
+    0 0 50px rgba(168, 85, 247, 0.2),
+    inset 0 2px 3px 0 rgba(255, 255, 255, 0.55),
+    inset 0 -1px 2px 0 rgba(255, 255, 255, 0.15) !important;
+  position: relative;
+}
+
+.glass-modal::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: linear-gradient(90deg, transparent 0%, rgba(236, 72, 153, 0.7) 25%, rgba(255, 255, 255, 0.95) 50%, rgba(56, 189, 248, 0.7) 75%, transparent 100%);
+  box-shadow: 0 0 12px rgba(255, 255, 255, 0.5);
+  pointer-events: none;
+}
+
+/* ========================================================= */
+/* 6. Inputs & Controls                                      */
+/* ========================================================= */
+
+.glass-input {
+  background: rgba(255, 255, 255, 0.07) !important;
+  backdrop-filter: blur(20px) !important;
+  -webkit-backdrop-filter: blur(20px) !important;
+  border: 1px solid rgba(255, 255, 255, 0.18) !important;
+  box-shadow: inset 0 2px 4px 0 rgba(0, 0, 0, 0.4) !important;
+  color: #fff !important;
+  transition: all 0.2s ease;
+}
+
+.glass-input:focus {
+  background: rgba(255, 255, 255, 0.12) !important;
+  border-color: rgba(192, 132, 252, 0.7) !important;
+  box-shadow: 
+    0 0 0 3px rgba(168, 85, 247, 0.3), 
+    0 0 16px rgba(168, 85, 247, 0.25),
+    inset 0 2px 4px 0 rgba(0, 0, 0, 0.3) !important;
+}
+
+/* ========================================================= */
+/* 7. Buttons & Pills                                        */
+/* ========================================================= */
+
+.glass-pill {
+  background: rgba(255, 255, 255, 0.08) !important;
+  backdrop-filter: blur(20px) saturate(200%) !important;
+  -webkit-backdrop-filter: blur(20px) saturate(200%) !important;
+  border: 1px solid rgba(255, 255, 255, 0.2) !important;
+  box-shadow: 
+    0 4px 16px rgba(0, 0, 0, 0.25), 
+    inset 0 1px 1.5px rgba(255, 255, 255, 0.45) !important;
+  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1) !important;
+}
+
+.glass-pill:hover {
+  background: rgba(255, 255, 255, 0.15) !important;
+  border-color: rgba(255, 255, 255, 0.42) !important;
+  box-shadow: 
+    0 6px 22px rgba(0, 0, 0, 0.35), 
+    0 0 20px rgba(168, 85, 247, 0.25),
+    inset 0 1px 2px rgba(255, 255, 255, 0.7) !important;
+  transform: translateY(-1.5px);
+}
+
+.glass-btn-primary {
+  background: linear-gradient(135deg, rgba(168, 85, 247, 0.85) 0%, rgba(139, 92, 246, 0.9) 45%, rgba(6, 182, 212, 0.85) 100%) !important;
+  backdrop-filter: blur(24px) !important;
+  -webkit-backdrop-filter: blur(24px) !important;
+  border: 1px solid rgba(255, 255, 255, 0.45) !important;
+  box-shadow: 
+    0 8px 25px rgba(139, 92, 246, 0.5), 
+    0 0 20px rgba(168, 85, 247, 0.3),
+    inset 0 1.5px 2px rgba(255, 255, 255, 0.8), 
+    inset 0 -1.5px 2px rgba(0, 0, 0, 0.35) !important;
+  color: #ffffff !important;
+  font-weight: 800 !important;
+  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1) !important;
+}
+
+.glass-btn-primary:hover {
+  background: linear-gradient(135deg, rgba(168, 85, 247, 0.95) 0%, rgba(139, 92, 246, 1) 45%, rgba(6, 182, 212, 0.95) 100%) !important;
+  border-color: rgba(255, 255, 255, 0.65) !important;
+  box-shadow: 
+    0 12px 36px rgba(168, 85, 247, 0.7), 
+    0 0 30px rgba(6, 182, 212, 0.4), 
+    inset 0 2px 3px rgba(255, 255, 255, 0.95) !important;
+  transform: translateY(-2px) scale(1.02);
+}
+
+.glass-btn-primary:active {
+  transform: translateY(0) scale(0.98);
+}
+
+/* ========================================================= */
+/* 8. Typography Gradients & Animations                      */
+/* ========================================================= */
+
+.text-gradient {
+  background: linear-gradient(135deg, #ffffff 0%, #f8fafc 40%, #e0e7ff 75%, #c7d2fe 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  filter: drop-shadow(0 2px 10px rgba(168, 85, 247, 0.25));
+}
+
+/* Liquid Blob Morphing Animation */
+@keyframes liquid-morph {
+  0% {
+    border-radius: 42% 58% 70% 30% / 45% 45% 55% 55%;
+    transform: scale(1) rotate(0deg);
+  }
+  33% {
+    border-radius: 70% 30% 46% 54% / 30% 29% 71% 70%;
+    transform: scale(1.06) rotate(120deg);
+  }
+  66% {
+    border-radius: 30% 70% 70% 30% / 50% 60% 40% 50%;
+    transform: scale(0.95) rotate(240deg);
+  }
+  100% {
+    border-radius: 58% 42% 38% 62% / 42% 65% 35% 58%;
+    transform: scale(1.03) rotate(360deg);
+  }
+}
+
+/* Liquid Gentle Floating Drift Animations */
+@keyframes liquid-drift-1 {
+  0% { transform: translate(0, 0); }
+  50% { transform: translate(80px, 90px); }
+  100% { transform: translate(-60px, 140px); }
+}
+
+@keyframes liquid-drift-2 {
+  0% { transform: translate(0, 0); }
+  50% { transform: translate(-100px, -80px); }
+  100% { transform: translate(70px, -120px); }
+}
+
+@keyframes liquid-drift-3 {
+  0% { transform: translate(0, 0); }
+  50% { transform: translate(90px, -70px); }
+  100% { transform: translate(-80px, 80px); }
+}
+
+@keyframes liquid-drift-4 {
+  0% { transform: translate(0, 0); }
+  50% { transform: translate(-70px, 90px); }
+  100% { transform: translate(100px, -60px); }
+}
+
+/* Translucent Liquid Scrollbars */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.25);
+  border-radius: 9999px;
+  backdrop-filter: blur(12px);
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(255, 255, 255, 0.45);
+}
+
+/* Smooth Rotation */
+@keyframes spin-slow {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+.animate-spin-slow {
+  animation: spin-slow 8s linear infinite;
+}
+
+/* ========================================================= */
+/* 9. Print Media Styles for Coordinator & Catering Packets  */
+/* ========================================================= */
+
+@media print {
+  body {
+    background-color: #ffffff !important;
+    color: #0f172a !important;
+  }
+  .liquid-bg, .crystal-bg, header, nav, footer, .glass-nav {
+    display: none !important;
+  }
+  .glass-modal, .glass-panel {
+    background: #ffffff !important;
+    color: #0f172a !important;
+    border: 1px solid #cbd5e1 !important;
+    box-shadow: none !important;
+    backdrop-filter: none !important;
+    -webkit-backdrop-filter: none !important;
+  }
+  textarea {
+    color: #000000 !important;
+    background: #ffffff !important;
+    border: none !important;
+    font-size: 11pt !important;
+    height: auto !important;
+    max-height: none !important;
+  }
+}
