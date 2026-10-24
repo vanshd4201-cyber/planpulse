@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en" class="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>PlanPulse ✨ GenAI Event Planning Assistant</title>
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>✨</text></svg>">
+
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['"Plus Jakarta Sans"', 'system-ui', 'sans-serif'],
+            display: ['"Outfit"', 'system-ui', 'sans-serif']
+          },
+          colors: {
+            brand: {
+              50: '#fdf4ff',
+              100: '#fae8ff',
+              500: '#d946ef',
+              600: '#c026d3',
+              700: '#a21caf'
+            }
+          }
+        }
+      }
+    }
+  </script>
+
+  <!-- Custom CSS -->
+  <link rel="stylesheet" href="css/styles.css">
+
+  <!-- React 18 & ReactDOM 18 UMD (Fast, zero build step) -->
+  <script src="https://cdn.jsdelivr.net/npm/react@18.2.0/umd/react.production.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/react-dom@18.2.0/umd/react-dom.production.min.js"></script>
+
+  <!-- Canvas Confetti for Celebration Effects -->
+  <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.9.2/dist/confetti.browser.min.js"></script>
+</head>
+<body class="bg-[#090d16] text-slate-100 min-h-screen selection:bg-purple-500/30 selection:text-white relative">
+  <!-- VisionOS Luxe Glass Luminous Aurora Meshes -->
+  <div class="liquid-bg" aria-hidden="true">
+    <div class="liquid-orb orb-1"></div>
+    <div class="liquid-orb orb-2"></div>
+    <div class="liquid-orb orb-3"></div>
+    <div class="liquid-orb orb-4"></div>
+    <div class="liquid-orb orb-5"></div>
+    <div class="liquid-caustics"></div>
+  </div>
+
+  <div id="root" class="relative z-10"></div>
+
+  <!-- PlanPulse Modular Application Scripts -->
+  <script src="js/data/defaultEvents.js"></script>
+  <script src="js/services/storageService.js"></script>
+  <script src="js/services/geminiService.js"></script>
+  <script src="js/components/Icons.js"></script>
+  <script src="js/components/Navbar.js"></script>
+  <script src="js/components/DashboardView.js"></script>
+  <script src="js/components/BudgetView.js"></script>
+  <script src="js/components/TimelineView.js"></script>
+  <script src="js/components/GuestsView.js"></script>
+  <script src="js/components/SeatingView.js"></script>
+  <script src="js/components/VendorsView.js"></script>
+  <script src="js/components/IdeaStudioView.js"></script>
+  <script src="js/components/OneClickPlanModal.js"></script>
+  <script src="js/components/EventModal.js"></script>
+  <script src="js/components/AIConfigModal.js"></script>
+  <script src="js/components/LiquidGlassControls.js"></script>
+  <script src="js/app.js"></script>
+</body>
+</html>
